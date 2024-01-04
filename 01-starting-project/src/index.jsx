@@ -5,3 +5,4 @@ import "./index.css";
 //import "../src/components/Header.css";
 const entryPoint = document.getElementById("root");
 ReactDOM.createRoot(entryPoint).render(<App />);
+//end day 1
