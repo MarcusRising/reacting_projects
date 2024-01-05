@@ -282,3 +282,54 @@ export default function App() {
 
 
 /*////////////////////////////////////////////////////////////////////////*/
+
+
+/*
+For this task, you need some state that changes whenever the button is clicked - this state can then be used to apply the active CSS class dynamically.
+
+Therefore, as a first step, add some state like this (to the App component function):
+
+const [highlighted, setHighlighted] = React.useState(false);
+
+
+This highlighted state should be changed whenever the <button> is clicked - hence the onClick prop and a fitting function (e.g., named handleClick) is required:
+
+export default function App() {
+    const [highlighted, setHighlighted] = React.useState(false);
+    
+    function handleClick() {
+        setHighlighted(isHighlighted => !isHighlighted);
+    }
+    
+    return (
+        <div>
+            <p>Style me!</p>
+            <button onClick={handleClick}>Toggle style</button>
+        </div>
+    );
+}
+Important: Here, the setHighlighted() state updating function uses a function to set the new state - this is done to follow the common best practice of using such a function if the new state is based on the previous state. Here, the new state is the opposite of the old state (!isHighlighted sets true to false and vice versa).
+
+
+
+Finally, it's time to apply the CSS class active on the <p> element dynamically:
+
+import React from 'react';
+ 
+// don't change the Component name "App"
+export default function App() {
+    const [highlighted, setHighlighted] = React.useState(false);
+    
+    function handleClick() {
+        setHighlighted(isHighlighted => !isHighlighted);
+    }
+    
+    return (
+        <div>
+            <p className={highlighted ? 'active' : undefined}>Style me!</p>
+            <button onClick={handleClick}>Toggle style</button>
+        </div>
+    );
+}
+
+*/
