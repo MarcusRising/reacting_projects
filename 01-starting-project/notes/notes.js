@@ -27,7 +27,8 @@ The Card component then outputs the received name between <h2> tags (though you 
 
 The children prop is then output directly below that title. Therefore, any content passed between the <Card> opening and closing tags is output below the <h2> element.
 */
-////////////////////////////////////////////////////////////////////////////////
+/*////////////////////////////////////////////////////////////////////////*/
+
 
 
 
@@ -73,7 +74,8 @@ The children prop is then output directly below that title. Therefore, any conte
 // }
 
 // export default App;
-//////////////////////////////////////////////////////////////////////////////
+/*////////////////////////////////////////////////////////////////////////*/
+
 
 // In order to react to <button> clicks, the onClick prop should be added to the <button> element:
 
@@ -150,3 +152,133 @@ The children prop is then output directly below that title. Therefore, any conte
 //     );
 // }
 
+/*////////////////////////////////////////////////////////////////////////*/
+
+/*
+For this task, you need some state that controls whether the warning box is visible or not. Hence, the first step is to register such an isDeleting state that's either true (the box will be shown) or false (it will not be shown). Of course, you could use any other state name of your choice:
+
+const [isDeleting, setIsDeleting] = React.useState(false);
+
+
+This state should be set to true (to later show the warning dialog) whenever the "Delete" <button> is clicked. To achieve this, the onClick prop is added and set to a function that updates the isDeleting state accordingly:
+
+import React from 'react';
+ 
+// don't change the Component name "App"
+export default function App() {
+    const [isDeleting, setIsDeleting] = React.useState(false);
+    
+    function deleteHandler() {
+        setIsDeleting(true);
+    }
+    
+    return (
+      <div>
+        <div data-testid="alert" id="alert">
+          <h2>Are you sure?</h2>
+          <p>These changes can't be reverted!</p>
+          <button>Proceed</button>
+        </div>
+        <button onClick={deleteHandler}>Delete</button>
+      </div>    
+    );
+}
+
+
+The "Proceed" <button> should do the opposite:
+
+import React from 'react';
+ 
+// don't change the Component name "App"
+export default function App() {
+    const [isDeleting, setIsDeleting] = React.useState(false);
+    
+    function deleteHandler() {
+        setIsDeleting(true);
+    }
+ 
+    function proceedHandler() {
+        setIsDeleting(false);
+    }
+    
+    return (
+      <div>
+        <div data-testid="alert" id="alert">
+          <h2>Are you sure?</h2>
+          <p>These changes can't be reverted!</p>
+          <button onClick={proceedHandler}>Proceed</button>
+        </div>
+        <button onClick={deleteHandler}>Delete</button>
+      </div>    
+    );
+}
+
+
+Now, you're ready to show the <div id="alert">...</div> conditionally, based on the value of isDeleting. For example, via a ternary expression:
+
+return (
+  <div>
+    {isDeleting ? <div data-testid="alert" id="alert">
+      <h2>Are you sure?</h2>
+      <p>These changes can't be reverted!</p>
+      <button onClick={proceedHandler}>Proceed</button>
+    </div> : ''}
+    <button onClick={deleteHandler}>Delete</button>
+  </div>    
+);
+
+
+Alternatively, you could use the && "trick":
+
+return (
+  <div>
+    {isDeleting && <div data-testid="alert" id="alert">
+      <h2>Are you sure?</h2>
+      <p>These changes can't be reverted!</p>
+      <button onClick={proceedHandler}>Proceed</button>
+    </div>}
+    <button onClick={deleteHandler}>Delete</button>
+  </div>    
+);
+
+
+Or use an extra variable to keep the logic out of your JSX code:
+
+import React from 'react';
+ 
+// don't change the Component name "App"
+export default function App() {
+    const [isDeleting, setIsDeleting] = React.useState(false);
+    
+    function deleteHandler() {
+        setIsDeleting(true);
+    }
+    
+    function proceedHandler() {
+        setIsDeleting(false);
+    }
+    
+    let warning;
+    
+    if (isDeleting) {
+        warning = (
+            <div data-testid="alert" id="alert">
+              <h2>Are you sure?</h2>
+              <p>These changes can't be reverted!</p>
+              <button onClick={proceedHandler}>Proceed</button>
+            </div>
+        );
+    }
+    
+    return (
+      <div>
+        {warning}
+        <button onClick={deleteHandler}>Delete</button>
+      </div>    
+    );
+}
+
+*/
+
+
+/*////////////////////////////////////////////////////////////////////////*/
