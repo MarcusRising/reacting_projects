@@ -12,6 +12,7 @@ function App() {
     setSelectedTopic(selectedButton);
     //console.log(selectedTopic);
   }
+
   let tabContent = <p>Please select a topic.</p>;
 
   if (selectedTopic) {
