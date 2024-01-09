@@ -333,3 +333,23 @@ export default function App() {
 }
 
 */
+
+/*/////////////////////////////////////////////////////////////////////////////////// */
+
+//jsx verison
+<div id="content">
+  <p>Hello World!</p>
+</div>
+
+//Javascript
+React.createElement(
+  'div',
+  {id: 'content'},
+  React.createElement(
+    'p',
+    null,
+    'Hello World'
+  )
+);
+
+
