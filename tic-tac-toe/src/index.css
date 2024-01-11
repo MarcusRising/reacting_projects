@@ -36,7 +36,7 @@ header {
 header img {
   width: 8rem;
   object-fit: contain;
-  margin: 3rem auto 1rem auto;
+  margin: 0rem auto 0rem auto;
   filter: drop-shadow(0 0 8px rgba(0, 0, 0, 0.4));
 }
 
@@ -50,7 +50,7 @@ h1 {
 #game-container {
   max-width: 45rem;
   margin: 3rem auto;
-  padding: 2rem;
+  padding: 1rem;
   border-radius: 6px;
   background: linear-gradient(#44BBA4, #8B786D);
   box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
@@ -89,7 +89,7 @@ h1 {
   border: none;
   background: none;
   color: #393E41;
-  font-size: 0.9rem;
+  font-size: 1rem;
   cursor: pointer;
   transition: color 0.2s;
   padding: 0.5rem 0.25rem 0.25rem 0.25rem;
