@@ -52,7 +52,7 @@ h1 {
   margin: 3rem auto;
   padding: 1rem;
   border-radius: 6px;
-  background: linear-gradient(#44BBA4, #8B786D);
+  background: radial-gradient(#44BBA4, #545252);
   box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
   position: relative;
 }
