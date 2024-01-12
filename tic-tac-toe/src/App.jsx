@@ -21,7 +21,7 @@ function deriveActivePlayer(gameTurns) {
 
 function App() {
   const [gameTurns, setGameTurns] = useState([]);
-  //const [activePlayer, setActivePlayer] = useState("X");
+
   const activePlayer = deriveActivePlayer(gameTurns);
 
   let gameBoard = [...initialGameBoard.map((array) => [...array])];
@@ -65,7 +65,7 @@ function App() {
   }
 
   function handleRestart() {
-    gameTurns[[]];
+    setGameTurns([]);
   }
 
   return (
